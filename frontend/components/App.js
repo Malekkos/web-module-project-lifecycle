@@ -17,7 +17,7 @@ export default class App extends React.Component {
     .then(res =>{
       // console.log(res.data.data)
       console.log("Mounted")
-      this.setState({ ...res.data.data})
+      this.setState({ ...res.data})
     })
   }
 
@@ -26,7 +26,7 @@ export default class App extends React.Component {
     console.log(this.state, "Rendered")
     return (
       <>
-        <Form  />
+        <Form todos={this.state} />
       </>
     )
   }
