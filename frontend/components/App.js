@@ -10,6 +10,7 @@ export default class App extends React.Component {
   
     state = {
       todos: [],
+      error: "",
     }
 
   fetchAllTodos = () => {
@@ -19,7 +20,9 @@ export default class App extends React.Component {
       
       this.setState({ ...this.state, todos: res.data.data })
     })
-    .catch(err => console.log(err))
+    .catch(err => {
+      this.setState({ ...this.state, error: err.response.data.message})
+    })
   }
 
   componentDidMount() {
@@ -32,6 +35,14 @@ export default class App extends React.Component {
     console.log(this.state, "Rendered")
     return (
       <>
+        <h1>{this.state.error}</h1>
+        <h2>Todos: </h2>
+        {
+          this.state.todos.map(val => {
+            return <div key={val.id}>{val.name}</div>
+          })
+        }
+
         <Form todos={this.state.todos} />
       </>
     )
