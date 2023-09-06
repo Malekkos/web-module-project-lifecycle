@@ -5,14 +5,20 @@ import TodoList from "./TodoList"
 export default class Form extends React.Component {
   
   render() {
+    
     // console.log(this.props, "Props are found!")
     return (
       <>
-      <div>
-        {/* <h1>Hello</h1> */}
-        {/* <h2>{this.props.todos.message}</h2> no longer a message lol */}
-        <TodoList todos={this.props} />
-      </div>
+        <form onSubmit={this.props.onTodoFormSubmit}>
+          <input 
+          value={this.props.todoNameInput} 
+          onChange={this.props.onTodoNameInputChange} 
+          type="text" 
+          placeholder="Type todo">
+          </input>
+          <input type="submit"></input>
+        </form>
+        <button onClick={this.props.toggleDisplayCompleteds}>{this.props.displayCompleteds ? "Hide" : "Show"} Completed</button>
       </>
     )
   }

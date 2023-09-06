@@ -95,12 +95,13 @@ export default class App extends React.Component {
             return acc
           }, [])
         }
-        <form onSubmit={this.onTodoFormSubmit}>
-          <Form todos={this.state.todos} />
-          <input value={this.state.todoNameInput} onChange={this.onTodoNameInputChange} type="text" placeholder="Type todo"></input>
-          <input type="submit"></input>
-          <button onClick={this.toggleDisplayCompleteds}>{this.state.displayCompleteds ? "Hide" : "Show"} Completed</button>
-        </form>
+        <Form 
+        onTodoFormSubmit={this.onTodoFormSubmit}
+        onTodoNameInputChange={this.onTodoNameInputChange}
+        toggleDisplayCompleteds={this.toggleDisplayCompleteds}
+        todoNameInput={this.state.todoNameInput}
+        displayCompleteds={this.state.displayCompleteds}
+        />
       </>
     )
   }
