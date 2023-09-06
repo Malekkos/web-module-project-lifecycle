@@ -5,12 +5,12 @@ import TodoList from "./TodoList"
 export default class Form extends React.Component {
   
   render() {
-    console.log(this.props, "Props are found!")
+    // console.log(this.props, "Props are found!")
     return (
       <>
       <div>
-        <h1>Hello</h1>
-        <h2>{this.props.todos.message}</h2>
+        {/* <h1>Hello</h1> */}
+        {/* <h2>{this.props.todos.message}</h2> no longer a message lol */}
         <TodoList todos={this.props} />
       </div>
       </>
