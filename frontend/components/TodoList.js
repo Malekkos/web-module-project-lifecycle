@@ -4,14 +4,18 @@ import React from 'react'
 
 export default class TodoList extends React.Component {
   render() {
-    // console.log(this.props.todos)
     return (
       <>
       <div>
-        {/* {this.props.todos.todos.data.map(val => {
-          {console.log(val, "Im mapping!")}
-         <Todo />
-        })} */}
+      <h2>Todos: </h2>
+        {
+          this.props.todos.reduce((acc, val) => {
+            if (this.props.displayCompleteds || !val.completed) return acc.concat(
+              <div onClick={this.props.toggleCompleted(val.id)} key={val.id}>{val.name} {val.completed ? "✔️" : ""}</div>
+            )
+            return acc
+          }, [])
+        }
       </div>
       </>
     )
