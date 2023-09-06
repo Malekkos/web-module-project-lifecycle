@@ -4,7 +4,11 @@ export default class Todo extends React.Component {
   render() {
     return (
       <>
-      <h1>Hello</h1>
+      <div 
+      onClick={this.props.toggleCompleted(this.props.val.id)} 
+      >
+        {this.props.val.name} {this.props.val.completed ? "✔️" : ""}
+      </div>
       </>
     )
   }
