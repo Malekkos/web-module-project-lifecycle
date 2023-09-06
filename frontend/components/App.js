@@ -6,19 +6,25 @@ const URL = 'http://localhost:9000/api/todos'
 
 export default class App extends React.Component {
 
-  constructor() {
     //receiving my todos from the api, should copy onto state
-    super()
-    this.state = []
-  }
   
-  componentDidMount() {
+    state = {
+      todos: [],
+    }
+
+  fetchAllTodos = () => {
     axios.get(URL)
     .then(res =>{
       // console.log(res.data.data)
-      console.log("Mounted")
-      this.setState({ ...res.data})
+      
+      this.setState({ ...this.state, todos: res.data.data })
     })
+    .catch(err => console.log(err))
+  }
+
+  componentDidMount() {
+    this.fetchAllTodos()
+    console.log("Mounted")
   }
 
 
@@ -26,7 +32,7 @@ export default class App extends React.Component {
     console.log(this.state, "Rendered")
     return (
       <>
-        <Form todos={this.state} />
+        <Form todos={this.state.todos} />
       </>
     )
   }

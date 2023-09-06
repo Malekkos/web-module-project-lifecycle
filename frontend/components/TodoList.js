@@ -1,5 +1,5 @@
 import React from 'react'
-import Todo from "./todo"
+// import Todo from "./Todo"
 
 
 export default class TodoList extends React.Component {
@@ -8,10 +8,10 @@ export default class TodoList extends React.Component {
     return (
       <>
       <div>
-        {this.props.todos.todos.data.map(val => {
+        {/* {this.props.todos.todos.data.map(val => {
           {console.log(val, "Im mapping!")}
          <Todo />
-        })}
+        })} */}
       </div>
       </>
     )
