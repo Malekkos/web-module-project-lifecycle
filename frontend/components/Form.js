@@ -11,7 +11,7 @@ export default class Form extends React.Component {
       <div>
         <h1>Hello</h1>
         <h2>{this.props.todos.message}</h2>
-        <TodoList />
+        <TodoList todos={this.props} />
       </div>
       </>
     )
